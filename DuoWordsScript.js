@@ -5,8 +5,8 @@
 // @author       Miriam Oe
 // @match        https://www.duolingo.com/
 // @grant        none
-// @updateURL    https://github.com/MiriamOe/DuoScripts/raw/master/DuoWordsScript.js
-// @downloadURL  https://github.com/MiriamOe/DuoScripts/raw/master/DuoWordsScript.js
+// @updateURL    https://github.com/MiriamOe/DuoWords/raw/master/DuoWordsScript.js
+// @downloadURL  https://github.com/MiriamOe/DuoWords/raw/master/DuoWordsScript.js
 // @require      http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js
 // @require      https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.2.1/lodash.min.js
 // ==/UserScript==
