@@ -11,7 +11,7 @@ This script adds the "words" button for languages that don't already have it. It
 # Nice to know
 - If your word list is very long or your internet connection is very slow, you might not be able to use the button right after it appears because it has to load all the words first. Just wait a few seconds and try again, now it should work
 
-# Differences between the original "words" page:
+# Differences between this and the original "words" page:
 - in the "spaced repetition" box on the right, the number of words of each strength is displayed next to the strength bars image
 - the info box that appears when you click on a word does not have the audio button or the "more details" button.
 - instead of the translation, the info box contains the gender of the word (in case it has one, otherwise it's empty)
