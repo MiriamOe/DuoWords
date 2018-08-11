@@ -23,3 +23,6 @@ This script adds the "words" button for languages that don't already have it. It
 - clicking on the skill name in the info box will start the skill practise
 
 Feel free to leave feedback or suggestions if you miss anything!
+
+# To those who will look at the code...
+I am not professional or very experienced and i'm pretty sure there would've been better ways to implement the same functionality. So if you have any suggestions regarding code quality, let me know!
