@@ -21,6 +21,7 @@ This script adds the "words" button for languages that don't already have it. It
 - clicking on "words" while already on the words page will refresh the table in case something changed. currently the page needs to be refreshed to update it.
 - updating the arrows in the table head when the words are ordered (just like it is on the original words page).
 - clicking on the skill name in the info box will start the skill practise
+- add audio to the info box
 
 Feel free to leave feedback or suggestions if you miss anything!
 
