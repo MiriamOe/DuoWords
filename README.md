@@ -17,7 +17,6 @@ This script adds the "words" button for languages that don't already have it. It
 - instead of the translation, the info box contains the gender of the word (in case it has one, otherwise it's empty)
 
 # What i want to implement next:
-- automatic refresh of the page when switching the language so the button appears or disappears without a manual refresh. currently the page has to be refreshed to update the button.  
 - clicking on "words" while already on the words page will refresh the table in case something changed. currently the page needs to be refreshed to update it.
 - updating the arrows in the table head when the words are ordered (just like it is on the original words page).
 - clicking on the skill name in the info box will start the skill practise
