@@ -6,8 +6,8 @@
 // @match        https://www.duolingo.com/
 // @namespace    https://twitter.com/mimomimo983
 // @grant        none
-// @updateURL    https://github.com/MiriamOe/DuoWords/raw/master/DuoWordsScript.js
-// @downloadURL  https://github.com/MiriamOe/DuoWords/raw/master/DuoWordsScript.js
+// @updateURL    https://raw.githubusercontent.com/MiriamOe/DuoWords/master/DuoWordsScript.js
+// @downloadURL  https://raw.githubusercontent.com/MiriamOe/DuoWords/master/DuoWordsScript.js
 // @require      http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js
 // @require      https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.2.1/lodash.min.js
 // ==/UserScript==
