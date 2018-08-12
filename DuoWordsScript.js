@@ -1,9 +1,10 @@
 // ==UserScript==
 // @name         Duolingo Word Strength
-// @version      1.0
+// @version      1.1
 // @description  Shows "Words" List for all Languages
 // @author       Miriam Oe
 // @match        https://www.duolingo.com/
+// @namespace    https://twitter.com/mimomimo983
 // @grant        none
 // @updateURL    https://github.com/MiriamOe/DuoWords/raw/master/DuoWordsScript.js
 // @downloadURL  https://github.com/MiriamOe/DuoWords/raw/master/DuoWordsScript.js
@@ -222,6 +223,11 @@ function f($) {
         duo = document.getElementsByClassName('uWoNt _2QyU5');
         if(duo.length>0) {
             duo[0].setAttribute("onclick", "location.reload()");}
+        
+        duo = document.getElementsByClassName('_2kNgI _1qBnH');
+        for(var i = 0; i<duo.length; i++) {
+            duo[i].setAttribute("onclick", "location.reload()");
+        }
     }
 
     var load = false;
