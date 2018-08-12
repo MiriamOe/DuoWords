@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Duolingo Word Strength
-// @version      1.1
+// @version      1.2
 // @description  Shows "Words" List for all Languages
 // @author       Miriam Oe
 // @match        https://www.duolingo.com/
@@ -25,9 +25,12 @@ function f($) {
     var dat, vocab;
 
     //loads words & language info into dat & vocab
-    function getData() {
+    function getData(bool) {
+        dat = null;
+        vocab = null;
         $.ajax({
             url: '/vocabulary/overview',
+            async : bool,
             success: function (data) {
                 dat = data;
                 vocab = dat.vocab_overview;
@@ -193,7 +196,16 @@ function f($) {
         createWordTable();
     }
 
-    function showWords() {
+    function refreshVocab () {
+        current = "";
+        getData(false);
+        createWordTable();
+    }
+
+    function showWords(t) {
+        //change onclick of words button to refresh table
+        t.setAttribute("onclick", "refreshVocab()");
+
         //replace skill tree box with vocab box
         var parent = document.getElementsByClassName("LFfrA _3MLiB")[0];
         parent.innerHTML = "<div class='Yd1hn'><div class='_3zjVe'><h1 class='_2cWRr'>"+dat.language_string+" words learned</h1><span class='_2xYtL'>"+vocab.length+" Words</span><table class='_1Xn1F'><thead><tr><th class='_3PIPp _2fZva rxSYY'>Word</th><th class='_3PIPp _2fZva rxSYY'>Part of speech</th><th class='_3PIPp _3ZtOu rxSYY'>Last practiced</th><th class='_3PIPp _2fZva rxSYY'>Strength</th></tr></thead><tbody></tbody></table></div><div class='_34CX7'><div class='NYMhm _3zjVe'></div></div></div>";
@@ -254,7 +266,7 @@ function f($) {
         wordbtn.setAttribute("class", "_2rS3d");
         var wordtext = document.createElement("p");
         wordtext.setAttribute("class", "_2QyU5");
-        wordtext.setAttribute("onclick", "showWords()");
+        wordtext.setAttribute("onclick", "showWords(this)");
         wordtext.appendChild(document.createTextNode("Words"));
         wordbtn.appendChild(wordtext);
         menu.insertBefore(wordbtn, menubtns[1]);
@@ -262,8 +274,7 @@ function f($) {
 
     $(document).ready(function () {
         init();
-        getData();
+        getData(true);
         createWordButton();
     });
 }
-
