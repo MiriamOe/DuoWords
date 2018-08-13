@@ -20,6 +20,7 @@ This script adds the "words" button for languages that don't already have it. It
 - updating the arrows in the table head when the words are ordered (just like it is on the original words page).
 - clicking on the skill name in the info box will start the skill practise
 - add audio to the info box
+- filter word list by skill
 
 Feel free to leave feedback or suggestions if you miss anything!
 
