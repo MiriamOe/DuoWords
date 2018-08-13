@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Duolingo Word Strength
-// @version      1.2
+// @version      1.2.1
 // @description  Shows "Words" List for all Languages
 // @author       Miriam Oe
 // @match        https://www.duolingo.com/
@@ -196,10 +196,12 @@ function f($) {
         createWordTable();
     }
 
+    //refreshes vocab list and spaced repetition div (word count for each strength)
     function refreshVocab () {
         current = "";
         getData(false);
         createWordTable();
+        createDivSpacedRepetition();
     }
 
     function showWords(t) {
