@@ -4,7 +4,6 @@
 // @description  Shows "Words" List for all Languages
 // @author       Miriam Oe
 // @match        https://www.duolingo.com/
-// @namespace    https://twitter.com/mimomimo983
 // @grant        none
 // @updateURL    https://raw.githubusercontent.com/MiriamOe/DuoWords/master/DuoWordsScript.js
 // @downloadURL  https://raw.githubusercontent.com/MiriamOe/DuoWords/master/DuoWordsScript.js
