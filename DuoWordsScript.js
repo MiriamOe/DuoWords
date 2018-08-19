@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Duolingo Words
-// @version      1.3
+// @version      1.4
 // @description  Shows "Words" List for all Languages
 // @author       Miriam Oe
 // @match        https://www.duolingo.com/
@@ -204,6 +204,10 @@ function f($) {
     }
 
     function showWords(t) {
+        //mark "words" button as selected instead of "home"
+        document.getElementsByClassName("uWoNt _2QyU5")[0].setAttribute("class", "_2QyU5");
+        t.setAttribute("class", "uWoNt _2QyU5");
+
         //change onclick of words button to refresh table
         t.setAttribute("onclick", "refreshVocab()");
 
