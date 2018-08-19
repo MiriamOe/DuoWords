@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Duolingo Words
-// @version      1.4
+// @version      1.5
 // @description  Shows "Words" List for all Languages
 // @author       Miriam Oe
 // @match        https://www.duolingo.com/
@@ -181,15 +181,43 @@ function f($) {
         return v;
     }
 
+    function invertArrow(old) {
+        switch(old) {
+            case "_3PIPp _2Zztm rxSYY": return "_3PIPp _3ZtOu rxSYY"; break;
+            case "_3PIPp _3ZtOu rxSYY": return "_3PIPp _2Zztm rxSYY"; break;
+        }
+    }
+
     var current = "";
     function orderBy(arg) {
+
+        //nicht ausgewählt: _3PIPp _2fZva rxSYY
+        //aufsteigend: _3PIPp _2Zztm rxSYY
+        //absteigend: _3PIPp _3ZtOu rxSYY
+        var btns = document.getElementsByClassName("_3zjVe")[0].getElementsByTagName("tr")[0].getElementsByTagName("th");
+
         //if vocab is ordered by the same argument, invert the list
         if(current==arg) {
             vocab = invertVocab();
+            switch(current) {
+                case "w": btns[0].setAttribute("class", invertArrow(btns[0].className)); break;
+                case "p": btns[1].setAttribute("class", invertArrow(btns[1].className)); break;
+                case "l": btns[2].setAttribute("class", invertArrow(btns[2].className)); break;
+                case "s": btns[3].setAttribute("class", invertArrow(btns[3].className)); break;
+            }
         //else order it by the new argument
         } else {
             current = arg;
             vocab = mergeSort(vocab, arg);
+            for(var i = 0; i<btns.length; i++) {
+                btns[i].setAttribute("class", "_3PIPp _2fZva rxSYY");
+            }
+            switch(current) {
+                case "w": btns[0].setAttribute("class", "_3PIPp _2Zztm rxSYY"); break;
+                case "p": btns[1].setAttribute("class", "_3PIPp _2Zztm rxSYY"); break;
+                case "l": btns[2].setAttribute("class", "_3PIPp _2Zztm rxSYY"); break;
+                case "s": btns[3].setAttribute("class", "_3PIPp _2Zztm rxSYY"); break;
+            }
         }
         //reload the table
         createWordTable();
@@ -204,10 +232,6 @@ function f($) {
     }
 
     function showWords(t) {
-        //mark "words" button as selected instead of "home"
-        document.getElementsByClassName("uWoNt _2QyU5")[0].setAttribute("class", "_2QyU5");
-        t.setAttribute("class", "uWoNt _2QyU5");
-
         //change onclick of words button to refresh table
         t.setAttribute("onclick", "refreshVocab()");
 
@@ -228,6 +252,11 @@ function f($) {
                 case "Strength": cells[i].setAttribute('onclick', 'orderBy("s")'); break;
             }
         }
+
+        //mark "words" button as selected instead of "home"
+        document.getElementsByClassName("uWoNt _2QyU5")[0].setAttribute("class", "_2QyU5");
+        t.setAttribute("class", "uWoNt _2QyU5");
+
         createWordTable();
     }
 
