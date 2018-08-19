@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name         Duolingo Word Strength
-// @version      1.2.1
+// @name         Duolingo Words
+// @version      1.3
 // @description  Shows "Words" List for all Languages
 // @author       Miriam Oe
 // @match        https://www.duolingo.com/
@@ -254,23 +254,28 @@ function f($) {
 
         //check if "words" exists
         var menuexists = false;
+        var ind;
         for(var i = 0; i<menubtns.length; i++) {
             if(menubtns[i].getElementsByTagName("a")[0].pathname=="/words") {
                 menuexists=true;
+                ind = i;
             }
         }
-        if(menuexists) {return;}
         load = true;
 
-        //if not, create it
-        var wordbtn = document.createElement("li");
-        wordbtn.setAttribute("class", "_2rS3d");
+        //if the button exists, replace the link. otherwise create the button
         var wordtext = document.createElement("p");
         wordtext.setAttribute("class", "_2QyU5");
         wordtext.setAttribute("onclick", "showWords(this)");
         wordtext.appendChild(document.createTextNode("Words"));
-        wordbtn.appendChild(wordtext);
-        menu.insertBefore(wordbtn, menubtns[1]);
+        if(menuexists) {
+            menubtns[ind].replaceChild(wordtext, menubtns[ind].getElementsByTagName("a")[0]);
+        } else {
+            var wordbtn = document.createElement("li");
+            wordbtn.setAttribute("class", "_2rS3d");
+            wordbtn.appendChild(wordtext);
+            menu.insertBefore(wordbtn, menubtns[1]);
+        }
     }
 
     $(document).ready(function () {
