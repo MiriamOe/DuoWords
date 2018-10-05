@@ -16,12 +16,7 @@ This script adds the "words" button for languages that don't already have it. It
 - the info box that appears when you click on a word does not have the audio button or the "more details" button.
 - instead of the translation, the info box contains the gender of the word (in case it has one, otherwise it's empty)
 
-# What i want to implement next:
-- clicking on the skill name in the info box will start the skill practise
-- add audio to the info box
-- filter word list by skill
-
-Feel free to leave feedback or suggestions if you miss anything!
-
 # To those who will look at the code...
 I am not professional or very experienced and i'm pretty sure there would've been better ways to implement the same functionality. So if you have any suggestions regarding code quality, let me know!
+
+Feel free to leave feedback or suggestions if you miss anything!
