@@ -21,7 +21,7 @@ function inject(f) {
 inject(f);
 
 function f($) {
-    var dat, vocab;
+    var dat, vocab, austroasiatic;
 
     //loads words & language info into dat & vocab
     function getData(bool) {
@@ -33,6 +33,7 @@ function f($) {
             success: function (data) {
                 dat = data;
                 vocab = dat.vocab_overview;
+                if (dat.language_string == "Japanese") {austroasiatic = true;}
             }
         });
     }
@@ -128,7 +129,11 @@ function f($) {
             child.className="VjtrX _7xnlz";
             child.setAttribute("onclick", "showInfo("+i+")");
             word = vocab[i].word_string;
-            type = emptyStrings(vocab[i].pos);
+            if (austroasiatic){
+                type = emptyStrings(vocab[i].normalized_string);
+            } else {
+                type = emptyStrings(vocab[i].pos);
+            }
             time = getTime(vocab[i].last_practiced_ms);
             strength = getStrengthBarsCode(vocab[i].strength_bars);
             child.innerHTML = "<td>"+word+"</td><td>"+type+"</td><td>"+time+"</td><td><span class='"+strength+"'></span></span></td>";
@@ -237,7 +242,13 @@ function f($) {
 
         //replace skill tree box with vocab box
         var parent = document.getElementsByClassName("LFfrA _3MLiB")[0];
-        parent.innerHTML = "<div class='Yd1hn'><div class='_3zjVe'><h1 class='_2cWRr'>"+dat.language_string+" words learned</h1><span class='_2xYtL'>"+vocab.length+" Words</span><table class='_1Xn1F'><thead><tr><th class='_3PIPp _2fZva rxSYY'>Word</th><th class='_3PIPp _2fZva rxSYY'>Part of speech</th><th class='_3PIPp _3ZtOu rxSYY'>Last practiced</th><th class='_3PIPp _2fZva rxSYY'>Strength</th></tr></thead><tbody></tbody></table></div><div class='_34CX7'><div class='NYMhm _3zjVe'></div></div></div>";
+        var mod_table;
+        if (austroasiatic){
+            mod_table = "<th class='_3PIPp _2fZva rxSYY'>Normalized String</th>";
+        } else{
+            mod_table = "<th class='_3PIPp _2fZva rxSYY'>Part of speech</th>";
+        }
+         parent.innerHTML = "<div class='Yd1hn'><div class='_3zjVe'><h1 class='_2cWRr'>"+dat.language_string+" words learned</h1><span class='_2xYtL'>"+vocab.length+" Words</span><table class='_1Xn1F'><thead><tr><th class='_3PIPp _2fZva rxSYY'>Word</th>"+mod_table+"<th class='_3PIPp _3ZtOu rxSYY'>Last practiced</th><th class='_3PIPp _2fZva rxSYY'>Strength</th></tr></thead><tbody></tbody></table></div><div class='_34CX7'><div class='NYMhm _3zjVe'></div></div></div>";
         
         //Create info Box on the right
         createDivSpacedRepetition();
