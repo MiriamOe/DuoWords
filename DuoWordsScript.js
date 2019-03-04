@@ -259,6 +259,7 @@ function f($) {
             switch(cells[i].innerHTML) {
                 case "Word": cells[i].setAttribute('onclick', 'orderBy("w")'); break;
                 case "Part of speech": cells[i].setAttribute('onclick', 'orderBy("p")'); break;
+                case "Normalized String": cells[i].setAttribute('onclick', 'orderBy("p")'); break;                    
                 case "Last practiced": cells[i].setAttribute('onclick', 'orderBy("l")'); break;
                 case "Strength": cells[i].setAttribute('onclick', 'orderBy("s")'); break;
             }
