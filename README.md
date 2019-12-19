@@ -1,3 +1,5 @@
+# This project is no longer being continued because Duolingo brought back the Words page that this script recreated. Wohoo!
+
 # DuoWords
 This script adds the "words" button for languages that don't already have it. It doesn't actually load the words page but instead recreates it.
 
